@@ -38,7 +38,7 @@ describe("Book", () => {
   it("Can get book by author", async () => {
     const author = "William Shakespeare";
     const req = await request(app).get(`/api/book/${author}`);
-    const actual = 1;
+    const actual = 3;
 
     expect(req.statusCode).toBe(200);
     expect(req.body.data.length).toBe(actual);
