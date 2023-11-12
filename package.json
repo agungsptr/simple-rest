@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "example rest in ts using express",
   "main": "index.js",
+  "repository": "https://github.com/agungsptr/simple-rest",
   "scripts": {
     "start": "nodemon ./src/app.ts",
     "test": "jest --bail --runInBand --forceExit"
   },
   "keywords": [
     "express",
-    "rest",
-    "typescript"
+    "jess",
+    "typescript",
+    "unit-test"
   ],
   "author": "agungsptr",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
