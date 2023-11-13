@@ -1,6 +1,6 @@
 import request from "supertest";
 import express, { Express } from "express";
-import router from "./router";
+import router from "./book.router";
 
 describe("Book", () => {
   let app: Express;
@@ -9,14 +9,6 @@ describe("Book", () => {
     app = express();
     app.use(express.json());
     app.use("/api", router);
-  });
-
-  it("Can say greeting", async () => {
-    const req = await request(app).get("/api");
-    const actual = "Hello world";
-
-    expect(req.statusCode).toBe(200);
-    expect(req.body.message).toEqual(actual);
   });
 
   it("Can get all book", async () => {
@@ -56,6 +48,13 @@ describe("Book", () => {
       title: "The Little Thing Called Code",
       year: 2003,
     });
+
     expect(req.statusCode).toBe(200);
+  });
+
+  it("Can response error if create with empty body", async () => {
+    const req = await request(app).post("/api/book");
+    
+    expect(req.statusCode).toBe(400);
   });
 });

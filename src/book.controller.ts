@@ -1,14 +1,6 @@
-import book from "./book.json";
+import book from "./data.json";
 import { Request, Response } from "express";
 import fs from "fs";
-
-function greeting(req: Request, res: Response) {
-  res.status(200).send({
-    statusCode: 200,
-    status: "Success",
-    message: "Hello world",
-  });
-}
 
 function getBook(req: Request, res: Response) {
   const limit = req.query.limit ?? 100;
@@ -33,7 +25,9 @@ function getBookByAuthor(req: Request, res: Response) {
 }
 
 function addBook(req: Request, res: Response) {
-  if (!req.body) {
+  const { body } = req;
+  
+  if (Object.keys(body).length === 0) {
     res.status(400).send({
       statusCode: 400,
       status: "Bad Request",
@@ -41,10 +35,10 @@ function addBook(req: Request, res: Response) {
     });
     return;
   }
-  
+
   const data = book;
-  data.push(req.body);
-  fs.writeFileSync(`${__dirname}/book.json`, JSON.stringify(data));
+  data.push(body);
+  fs.writeFileSync(`${__dirname}/data.json`, JSON.stringify(data));
 
   res.status(200).send({
     statusCode: 200,
@@ -53,4 +47,4 @@ function addBook(req: Request, res: Response) {
   });
 }
 
-export { getBook, greeting, addBook, getBookByAuthor };
+export { getBook, addBook, getBookByAuthor };

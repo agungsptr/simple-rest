@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import router from "./router";
+import router from "./book.router";
 
 /** set env from .env file */
 dotenv.config();

@@ -6,7 +6,7 @@
   "repository": "https://github.com/agungsptr/simple-rest",
   "scripts": {
     "start": "nodemon ./src/app.ts",
-    "test": "jest --bail --runInBand --forceExit"
+    "test": "jest --bail --forceExit --coverage --detectOpenHandles"
   },
   "keywords": [
     "express",
