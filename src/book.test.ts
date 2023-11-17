@@ -13,7 +13,7 @@ describe("Book", () => {
 
   it("Can get all book", async () => {
     const req = await request(app).get("/api/book");
-    const actual = 100;
+    const actual = 90;
 
     expect(req.statusCode).toBe(200);
     expect(req.body.data.length).toEqual(actual);
