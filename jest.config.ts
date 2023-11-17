@@ -7,4 +7,5 @@ const config: Config.InitialOptions = {
     "^.+\\.ts?$": "ts-jest",
   },
 };
+
 export default config;
